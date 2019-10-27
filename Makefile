@@ -9,8 +9,8 @@ conf:
 	$(MAKE) bd-conf # roda a regra do bd-conf
 
 bd-conf:
-	mysql -u root -p --execute="drop database if exists manitoramento_saude; create database manitoramento_saude; drop user if exists 'saude'; create user 'saude' identified by 'saude321'; grant all privileges on manitoramento_saude.* to 'saude';"
-	sed -i 's/DB_DATABASE.*/DB_DATABASE=manitoramento_saude/' .env # ajusta o nome do banco no .env
+	mysql -u root -p --execute="drop database if exists monitoramento_saude; create database monitoramento_saude; drop user if exists 'saude'; create user 'saude' identified by 'saude321'; grant all privileges on monitoramento_saude.* to 'saude';"
+	sed -i 's/DB_DATABASE.*/DB_DATABASE=monitoramento_saude/' .env # ajusta o nome do banco no .env
 	sed -i 's/DB_USERNAME.*/DB_USERNAME=saude/' .env # ajusta o nome de usuário no .env
 	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=saude321/' .env # ajusta a senha no .env
 	php artisan migrate:refresh --seed
