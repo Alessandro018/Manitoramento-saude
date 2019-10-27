@@ -25,6 +25,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group row"s>
+                            <label class="col-md-4 col-form-label text-md-right">Tipo de usuário</label>
+                            <div class="col-md-6">
+                                <select class="custom-select" name="tipo" required>
+                                    <option selected disabled>Selecione</option>
+                                    <option value="usuario">Usuário</option>
+                                    <option value="doutor">Doutor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row"s>
+                            <label class="col-md-4 col-form-label text-md-right">Tipo sanguíneo</label>
+                            <div class="col-md-6">
+                                <select class="custom-select" name="tipo_sanguineo" required>
+                                    <option selected disabled>Selecione</option>
+                                    <option value="A-">A-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="O+">O+</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -58,42 +86,6 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="exampleFormControlSelect1" class="col-md-4 col-form-label text-md-right">{{ __('Tipo sanguíneo') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control" id="exampleFormControlSelect1" name="tipo_sanguineo" selected="{{ old('tipo_sanguineo') }}" required>
-                                    <option disabled selected>Selecione</option>
-                                    <option>A-</option>
-                                    <option>A+</option>
-                                    <option>B-</option>
-                                    <option>B+</option>
-                                    <option>AB-</option>
-                                    <option>AB+</option>
-                                    <option>O-</option>
-                                    <option>O+</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="exampleFormControlSelect1" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de conta') }}</label>
-
-                            <div class="col-md-6">
-                                <?php
-                                    if(old('tipo')=='doutor'){ ?>
-                                        <input type="radio" name="tipo" value="doutor" require checked><label for="exampleFormControlSelect1" class="col-md-4 col-form-label">Doutor</label>
-                                        <input type="radio" name="tipo" value="usuario" require><label for="exampleFormControlSelect1" class="col-md-4 col-form-label ">Usuário</label>
-                                    <?php }elseif(old('tipo')=='usuario'){ ?>
-                                        <input type="radio" name="tipo" value="doutor" require><label for="exampleFormControlSelect1" class="col-md-4 col-form-label ">Doutor</label>
-                                        <input type="radio" name="tipo" value="usuario" require checked><label for="exampleFormControlSelect1" class="col-md-4 col-form-label">Usuário</label>
-                                    <?php }else{ ?>
-                                        <input type="radio" name="tipo" value="doutor" require><label for="exampleFormControlSelect1" class="col-md-4 col-form-label ">Doutor</label>
-                                        <input type="radio" name="tipo" value="usuario" require><label for="exampleFormControlSelect1" class="col-md-4 col-form-label ">Usuário</label>
-                                    <?php } ?>
                             </div>
                         </div>
 
