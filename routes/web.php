@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/checkup', 'CheckupController@index');
+Route::get('/user', 'UserController@index');
+Route::get('/user/listar{id}', 'UserController@detalhe');
