@@ -24,6 +24,7 @@ class Checkup extends Migration
             $table->float('colesterol_LDL');
             $table->float('colesterol_HDL');
             $table->text('observacoes');
+            $table->timestamps();
         });
     }
 
