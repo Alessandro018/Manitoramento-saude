@@ -7,10 +7,14 @@ use App\User;
 use App\Checkup;
 class CheckupController extends Controller
 {
-    public function index()
+    public function create()
     {
-    	$pacientes = User::all();
-    	return view('checkup.index', ['pacientes' => $pacientes]);
+    	if(auth()->check() && auth()->user()->tipo=='doutor')
+    	{
+	    	$pacientes = User::all();
+	    	return view('checkup.create', ['pacientes' => $pacientes]);
+    	}
+    	return redirect()->route('login');
     }
 
     public function store(Request $request)
@@ -27,6 +31,6 @@ class CheckupController extends Controller
     	]);
     	Checkup::create($request->all());
     	return redirect()->route('checkup.index')
-            ->with('success','Check-up cadastrada com successo.');
+            ->with('success','Check-up cadastrado com successo.');
     }
 }
