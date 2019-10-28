@@ -23,7 +23,7 @@ class Checkup extends Migration
             $table->Integer('nivel_glicose');
             $table->float('colesterol_LDL');
             $table->float('colesterol_HDL');
-            $table->text('observacoes');
+            $table->text('observacoes')->nullable();
             $table->timestamps();
         });
     }

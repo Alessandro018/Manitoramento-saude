@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Checkup;
+
 class CheckupController extends Controller
 {
+	public function index()
+	{
+		$checkups = Checkup::all();
+		return view('checkup.index', ['checkups' => $checkups]);
+	}
+
     public function create()
     {
     	if(auth()->check() && auth()->user()->tipo=='doutor')
     	{
-	    	$pacientes = User::all();
+	    	$pacientes = User::where('tipo', 'usuario')->get();
 	    	return view('checkup.create', ['pacientes' => $pacientes]);
     	}
     	return redirect()->route('login');
@@ -30,7 +37,7 @@ class CheckupController extends Controller
     		'colesterol_HDL' => 'required',
     	]);
     	Checkup::create($request->all());
-    	return redirect()->route('checkup.index')
+    	return redirect()->route('checkup.create')
             ->with('success','Check-up cadastrado com successo.');
     }
 }

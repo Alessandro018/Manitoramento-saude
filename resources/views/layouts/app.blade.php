@@ -18,6 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        div{
+            text-align: center;
+        }
+        td, a{
+           padding-right: 14px; 
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -51,7 +59,7 @@
                         @else
                             @if(Auth::user()->tipo=='doutor')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Cadastrar check-up') }}</a>
+                                    <a class="nav-link" href="{{ action('CheckupController@create') }}">{{ __('Cadastrar check-up') }}</a>
                                 </li>
                             @endif
                             @if(Auth::user()->tipo=='usuario')

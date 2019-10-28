@@ -9,4 +9,9 @@ class Checkup extends Model
     protected $fillable = [
     	'user_id', 'data_checkup', 'peso', 'altura', 'pressao_arterial', 'nivel_glicose', 'colesterol_LDL', 'colesterol_HDL', 'observacoes',
     ];
+
+    public function usuario()
+    {
+    	return $this->hasOne('App\User', 'id', 'user_id');
+    }
 }
