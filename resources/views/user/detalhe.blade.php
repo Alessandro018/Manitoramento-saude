@@ -5,6 +5,7 @@
     <table class="table table-bordered">
 		<tr>
 			<th>Data do checkup</th>
+			<th>Tipo sanguíneo</th>
 			<th>Peso</th>
 			<th>Altura</th>
             <th>Pressão arterial</th>
@@ -16,6 +17,7 @@
 
 		<tr>
 			<td style="overflow: hidden;text-overflow: ellipsis;white-space: wrap;">{{ $checkup->data_checkup }}</td>
+			<td>{{Auth()->user()->tipo_sanguineo}}</td>
 			<td>{{ $checkup->peso }}</td>
 			<td>{{ $checkup->altura }}</td>
 			<td>{{ $checkup->pressao_arterial }}</td>
