@@ -5,13 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Checkup;
+use Illuminate\Support\Facades\DB;
 
 class CheckupController extends Controller
 {
 	public function index()
 	{
-		$checkups = Checkup::all();
-		return view('checkup.index', ['checkups' => $checkups]);
+    	if(auth()->check() && auth()->user()->tipo=='doutor'){
+
+			$checkups = Checkup::all();
+			return view('checkup.index', ['checkups' => $checkups]);
+		}
+		elseif (auth()->check() && auth()->user()->tipo=='usuario') {
+			$checkups = DB::table('checkups')
+            ->join('users','users.id', '=' ,'checkups.user_id')
+            ->select('checkups.*')
+            ->where('checkups.user_id',Auth()->user()->id)
+            ->get();
+             
+        return view('user.index', ['checkups' => $checkups]);
+		}
 	}
 
     public function create()
@@ -38,6 +51,13 @@ class CheckupController extends Controller
     	]);
     	Checkup::create($request->all());
     	return redirect()->route('checkup.create')
-            ->with('success','Check-up cadastrado com successo.');
+            ->with('success','Check-up cadastrado com successo');
+    }
+
+    public function destroy($id)
+    {
+    	$checkup = Checkup::find($id)->delete();
+    	return redirect()->route('checkup.index')
+    	->with('success', 'Check-up excluído com successo');
     }
 }

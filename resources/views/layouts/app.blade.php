@@ -64,7 +64,7 @@
                             @endif
                             @if(Auth::user()->tipo=='usuario')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/user') }}">{{ __('Meus check-up') }}</a>
+                                    <a class="nav-link" href="{{ url('/checkup') }}">{{ __('Meus check-up') }}</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
