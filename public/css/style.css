@@ -1,0 +1,17 @@
+div{
+    text-align: center;
+}
+td, a{
+   padding-right: 14px; 
+}
+button{
+    color: #3490dc;
+    background: none;
+    border: none;
+}
+button:hover{
+    text-decoration: underline;
+}
+textarea{
+    resize: none;
+}

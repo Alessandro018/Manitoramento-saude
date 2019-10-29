@@ -18,26 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        div{
-            text-align: center;
-        }
-        td, a{
-           padding-right: 14px; 
-        }
-        button{
-            color: #3490dc;
-            background: none;
-            border: none;
-        }
-        button:hover{
-            text-decoration: underline;
-        }
-        textarea{
-            resize: none;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
