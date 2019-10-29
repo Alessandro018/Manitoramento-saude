@@ -50,7 +50,7 @@ class CheckupController extends Controller
     		'colesterol_HDL' => 'required',
     	]);
     	Checkup::create($request->all());
-    	return redirect()->route('checkup.create')
+    	return redirect()->route('checkup.index')
             ->with('success','Check-up cadastrado com successo');
     }
 

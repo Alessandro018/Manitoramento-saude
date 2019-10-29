@@ -18,11 +18,7 @@
 				            </ul>
 				        </div>
 				    @endif
-				    @if ($message = Session::get('success'))
-				        <div class="alert alert-success">
-				            {{ $message }}
-				        </div>
-				    @endif
+				   
                     <form method="POST" action="{{ route('checkup.store') }}">
                         @csrf
 

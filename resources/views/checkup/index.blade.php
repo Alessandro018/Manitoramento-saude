@@ -32,8 +32,15 @@
 					<tr>
 						<td>{{ $checkup->data_checkup }}</td>
 						<td>{{ $checkup->usuario->name }}</td>
-						<td><a href="">Detalhes</a><a href="">Editar</a>
-							<a href="{{ action('CheckupController@destroy',$checkup->id) }}">Excluir</a></td>
+						<td>
+							<form action="{{ action('CheckupController@destroy',$checkup->id) }}" method="POST">
+							<a href="">Detalhes</a>
+							<a href="">Editar</a>
+								@csrf
+								@method('DELETE')
+								<button type="submit" style="background: none;border: none;">Excluir</button>
+							</form>
+						</td>
 					</tr>
 				@endforeach
 		    </tbody>

@@ -25,6 +25,12 @@
         td, a{
            padding-right: 14px; 
         }
+        button{
+            color: #3490dc;
+        }
+        button:hover{
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +64,9 @@
                             @endif
                         @else
                             @if(Auth::user()->tipo=='doutor')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('CheckupController@index') }}">{{ __('Check-ups') }}</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ action('CheckupController@create') }}">{{ __('Cadastrar check-up') }}</a>
                                 </li>
