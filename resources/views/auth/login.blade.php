@@ -5,6 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+@if(Auth::check())
+    <?php header('location: /checkup'); exit;?>
+@endif
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
