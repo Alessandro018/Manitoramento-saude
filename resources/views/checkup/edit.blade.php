@@ -143,7 +143,6 @@
                 <button type="submit" class="btn btn-primary">
                     {{ __('Atualizar') }}
                 </button>
-                <input type="hidden" value="1" name="user_id">
             </div>
     </form>
 @endsection

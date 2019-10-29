@@ -34,11 +34,11 @@
 						<td>{{ $checkup->usuario->name }}</td>
 						<td>
 							<form action="{{ action('CheckupController@destroy',$checkup->id) }}" method="POST">
-							<a class="btn btn-secondary" href="{{ url('/checkup/detalhe'.$checkup->id) }}">Detalhes</a>
-							<a class="btn btn-primary" href="{{ action('CheckupController@edit',$checkup->id) }}">Editar</a>
+							<a href="{{ url('/checkup/detalhe'.$checkup->id) }}">Detalhes</a>
+							<a href="{{ action('CheckupController@edit',$checkup->id) }}">Editar</a>
 								@csrf
 								@method('DELETE')
-								<button class="btn btn-danger" type="submit">Excluir</button>
+								<button type="submit">Excluir</button>
 							</form>
 						</td>
 					</tr>
