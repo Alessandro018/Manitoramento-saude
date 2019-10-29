@@ -34,11 +34,11 @@
 						<td>{{ $checkup->usuario->name }}</td>
 						<td>
 							<form action="{{ action('CheckupController@destroy',$checkup->id) }}" method="POST">
-							<a href="">Detalhes</a>
-							<a href="">Editar</a>
+							<a class="btn btn-secondary" href="">Detalhes</a>
+							<a class="btn btn-primary" href="{{ action('CheckupController@edit',$checkup->id) }}">Editar</a>
 								@csrf
 								@method('DELETE')
-								<button type="submit" style="background: none;border: none;">Excluir</button>
+								<button class="btn btn-danger" type="submit">Excluir</button>
 							</form>
 						</td>
 					</tr>

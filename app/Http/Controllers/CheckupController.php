@@ -59,5 +59,31 @@ class CheckupController extends Controller
     	$checkup = Checkup::find($id)->delete();
     	return redirect()->route('checkup.index')
     	->with('success', 'Check-up excluído com successo');
+	}
+	
+	public function edit($id)
+    {
+        $checkup = Checkup::find($id);
+        return view('checkup.edit', ['checkup'=> $checkup]);
+	}
+	
+	public function update(Request $request, $id)
+    {
+		$checkup = Checkup::find($id);
+
+        $request->validate([
+    		'user_id' => 'required',
+    		'data_checkup' => 'required',
+    		'peso' => 'required',
+    		'altura' => 'required',
+    		'pressao_arterial' => 'required',
+    		'nivel_glicose' => 'required',
+    		'colesterol_LDL' => 'required',
+    		'colesterol_HDL' => 'required',
+		]);
+			$checkup->update($request->all());
+			
+        return redirect()->route('checkup.index')
+            ->with('success','Questão atualizada com successo');
     }
 }
