@@ -84,6 +84,22 @@ class CheckupController extends Controller
 			$checkup->update($request->all());
 			
         return redirect()->route('checkup.index')
-            ->with('success','Questão atualizada com successo');
+            ->with('success','Check-up atualizado com successo');
+	}
+	
+	public function detalhe($id)
+    {
+		$checkups = DB::table('checkups')
+			->join('users','users.id', '=' ,'checkups.user_id')
+			->select('checkups.*')
+			->where('checkups.id',$id)
+			->first();
+
+		$users = DB::table('users')
+			->select('users.*')
+			->where('users.id',$checkups->user_id)
+			->first();
+		
+		return view('checkup.detalhe', ['checkups' => $checkups , 'users' => $users]);
     }
 }

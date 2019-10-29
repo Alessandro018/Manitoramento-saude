@@ -34,7 +34,7 @@
 						<td>{{ $checkup->usuario->name }}</td>
 						<td>
 							<form action="{{ action('CheckupController@destroy',$checkup->id) }}" method="POST">
-							<a class="btn btn-secondary" href="">Detalhes</a>
+							<a class="btn btn-secondary" href="{{ url('/checkup/detalhe'.$checkup->id) }}">Detalhes</a>
 							<a class="btn btn-primary" href="{{ action('CheckupController@edit',$checkup->id) }}">Editar</a>
 								@csrf
 								@method('DELETE')
